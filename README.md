@@ -29,5 +29,5 @@ From there, we construct an `<img>` replacement for the emoji:
  * Use the name of the emoji in the `title` parameter. This allows for hover-tooltips.
  * Add an `aria-label` for screen-reader accessibility. 
 
-For more information, see [Solve For Emoji](glasnt.com/blog/2016/08/06/solve-for-emoji.html)
+For more information, see [Solve For Emoji](http://glasnt.com/blog/2016/08/06/solve-for-emoji.html)
 
