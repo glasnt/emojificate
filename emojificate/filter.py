@@ -12,22 +12,21 @@ def tag(a, b):
     return "%s=\"%s\"" % (a, b)
 
 
+def convert(char):
+    if unicodedata.category(char) == "So":
+        name = unicodedata.name(char).title()
+        code = char.encode("unicode_escape").decode("utf-8")[2:].strip("0")
+        return "".join([
+            "<img",
+            tag(" src", cdn + code + cdn_ft),
+            tag(" alt", char),
+            tag(" title", name),
+            tag(" aria-label", "Emoji: %s" % name),
+            ">"
+        ])
+    else:
+        return char
+
+
 def emojificate(line):
-    result = ""
-
-    for char in line:
-        append = char
-        if unicodedata.category(char) == "So":
-            name = unicodedata.name(char).title()
-            code = char.encode("unicode_escape").decode("utf-8")[2:].strip("0")
-            append = "".join([
-                "<img",
-                tag(" src", cdn + code + cdn_ft),
-                tag(" alt", char),
-                tag(" title", name),
-                tag(" aria-label", "Emoji: %s" % name),
-                ">"
-            ])
-
-        result += append
-    return result
+    return ''.join(convert(ch) for ch in line)
