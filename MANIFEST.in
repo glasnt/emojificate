@@ -1,0 +1,7 @@
+include *.rst
+include LICENSE
+recursive-include tests *.py
+recursive-include docs Makefile
+recursive-include docs *.py
+recursive-include docs *.bat
+recursive-include docs *.rst
