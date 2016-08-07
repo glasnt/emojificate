@@ -25,9 +25,9 @@ Implementation
 
 TL;DR: Take a string, split it into token, and if a token is emoji, process it into a nice format.
 
-Using `uniseq's <http://uniseg-python.readthedocs.io/en/latest/graphemecluster.html#uniseg.graphemecluster.grapheme_clusters>`__ implementation of the `Unicode Text Segmentation <http://www.unicode.org/reports/tr29/tr29-21.html>`__ standard, we can split a string into separate tokens.
+Splitting the string is a problem, because at the moment it **does not handle Zero Width Joining sequences**. However, native Python string tokenization does work for the most part.
 
-Leveraging the native `unicodedata <https://docs.python.org/3/library/unicodedata.html>`__ we can:
+Given a list of tokens, we can leverage the native `unicodedata <https://docs.python.org/3/library/unicodedata.html>`__ to:
 
  * see if a token is a unicode Symbol (an emoji)
  * get the codepoint for the emoji, and
@@ -41,3 +41,8 @@ From there, we construct an ``<img>`` replacement for the emoji:
  * Add an ``aria-label`` for screen-reader accessibility.
 
 For more information, see `Solve For Emoji <http://glasnt.com/blog/2016/08/06/solve-for-emoji.html>`__.
+
+Limitations
+-----------
+
+* Does not handle Zero Width Join Sequences; for example: 🖐🏽, 👩‍👩‍👧

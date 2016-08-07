@@ -40,5 +40,4 @@ setup(
     ],
     keywords='emoji accessibility a11y',
     packages=find_packages(exclude=['docs', 'test']),
-    install_requires=['uniseg']
 )

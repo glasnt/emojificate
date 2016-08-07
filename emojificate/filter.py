@@ -1,5 +1,4 @@
 import unicodedata
-from uniseg import graphemecluster as gc
 
 
 __all__ = ['emojificate']
@@ -16,7 +15,7 @@ def tag(a, b):
 def emojificate(line):
     result = ""
 
-    for char in gc.grapheme_clusters(line):
+    for char in line:
         append = char
         if unicodedata.category(char) == "So":
             name = unicodedata.name(char).title()
