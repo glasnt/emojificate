@@ -1,6 +1,5 @@
 import unicodedata
 import sys
-from uniseg import graphemecluster as gc
 
 def display_help():
     print("emojificate.py -- turns text with emoji into text with accessible emoji")
@@ -14,7 +13,7 @@ def tag(a,b):
 def emojificate(line):
     result = ""
 
-    for char in gc.grapheme_clusters(line):
+    for char in line:
         append = char
         if unicodedata.category(char) == "So":
              name = unicodedata.name(char).title()
