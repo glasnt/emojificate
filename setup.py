@@ -23,7 +23,7 @@ setup(
     long_description=long_description,
     url='https://github.com/glasnt/emojificate',
     author='Katie McLaughlin',
-    author_email='glasnt@glasnt.com',
+    author_email='katie@glasnt.com',
     license='New BSD',
     classifiers=[
         'Development Status :: 3 - Alpha',
