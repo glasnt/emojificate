@@ -29,16 +29,16 @@ Splitting the string is a problem, because at the moment it **does not handle Ze
 
 Given a list of tokens, we can leverage the native `unicodedata <https://docs.python.org/3/library/unicodedata.html>`__ to:
 
- * see if a token is a unicode Symbol (an emoji)
- * get the codepoint for the emoji, and
- * get the name of the emoji
+* see if a token is a unicode Symbol (an emoji)
+* get the codepoint for the emoji, and
+* get the name of the emoji
 
 From there, we construct an ``<img>`` replacement for the emoji:
 
- * Use images from `twemoji <https://github.com/twitter/twemoji>`__, Twitter's emoji set
- * Have an ``alt`` parameter containing the original emoji. This allows for copying-pasting.
- * Use the name of the emoji in the ``title`` parameter. This allows for hover-tooltips.
- * Add an ``aria-label`` for screen-reader accessibility.
+* Use images from `twemoji <https://github.com/twitter/twemoji>`__, Twitter's emoji set
+* Have an ``alt`` parameter containing the original emoji. This allows for copying-pasting.
+* Use the name of the emoji in the ``title`` parameter. This allows for hover-tooltips.
+* Add an ``aria-label`` for screen-reader accessibility.
 
 For more information, see `Solve For Emoji <http://glasnt.com/blog/2016/08/06/solve-for-emoji.html>`__.
 
