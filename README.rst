@@ -6,10 +6,19 @@ Emojificate is a Python implementation of a concept of using fallback images, al
 Usage
 -----
 
-To convert a string::
+To convert a string from the command line::
 
     $ python3 -m emojificate "I 💜 emoji 😊"
     I <img src="https://twemoji.maxcdn.com/36x36/1f49c.png" alt="💜" title="Purple Heart" height="16px" aria-label="Emoji: Purple Heart"> emoji <img src="https://twemoji.maxcdn.com/36x36/1f60a.png" alt="😊" title="Smiling Face With Smiling Eyes" height="16px" aria-label="Emoji: Smiling Face With Smiling Eyes">
+
+Or, if you've got a Django project, put ``emojificate`` into your ``INSTALLED_APPS``, and then use the following in a template::
+
+    {% load emojificate %}
+    This is some {{ user_content|emojificate }} that has emoji in it.
+
+    {% emojified %}
+    This is some template content that 💜 emoji as well.
+    {% endemojified %}
 
 Implementation
 --------------
