@@ -15,7 +15,7 @@ def tag(a, b):
 def convert(char):
     if unicodedata.category(char) == "So":
         name = unicodedata.name(char).title()
-        code = char.encode("unicode_escape").decode("utf-8")[2:].strip("0")
+        code = char.encode("unicode_escape").decode("utf-8")[2:].lstrip("0")
         return "".join([
             "<img",
             tag(" src", cdn + code + cdn_ft),
