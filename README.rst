@@ -44,6 +44,37 @@ From there, we construct an ``<img>`` replacement for the emoji:
 
 For more information, see `Solve For Emoji <http://glasnt.com/blog/2016/08/06/solve-for-emoji.html>`__.
 
+Implementation in other languages
+---------------------------------
+
+Ruby
+~~~~~
+
+.. code-block:: ruby
+
+    require 'gemoji' # requires gemoji 3.0.0rc2 or higher
+
+    def cdn
+        "https://twemoji.maxcdn.com/36x36"
+    end
+    def cdn_ft
+        "png"
+    end
+
+    def emojificate(string)
+      string.split("").each do |s|
+          e = Emoji.find_by_unicode(s)
+          if e then
+               u = s.ord.to_s(16) # e.g. 1f431
+               d = e.description  # e.g. "cat face"
+               img = "<img src=\"#{cdn}/#{u}.png\" alt=\"#{s}\" title=\"#{d}\" aria-label=\"Emoji: #{d}\">"
+               print img
+           else
+               print s
+           end
+       end
+     end
+
 Limitations
 -----------
 
