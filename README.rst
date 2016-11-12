@@ -57,9 +57,6 @@ Ruby
     def cdn
         "https://twemoji.maxcdn.com/36x36"
     end
-    def cdn_ft
-        "png"
-    end
 
     def emojificate(string)
       string.split("").each do |s|
