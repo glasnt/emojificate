@@ -52,7 +52,7 @@ Ruby
 
 .. code-block:: ruby
 
-    require 'gemoji' # requires gemoji 3.0.0rc2 or higher
+    require 'gemoji' # requires gemoji 3.0.0, released late Dec 2016
 
     def cdn
         "https://twemoji.maxcdn.com/36x36"
