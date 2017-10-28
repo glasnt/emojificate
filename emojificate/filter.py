@@ -4,8 +4,7 @@ import unicodedata
 __all__ = ['emojificate']
 
 
-cdn = "https://twemoji.maxcdn.com/36x36/"
-cdn_ft = ".png"
+cdn_fmt = "https://twemoji.maxcdn.com/36x36/{codepoint:x}.png"  # {:x} gives hex
 
 
 def tag(a, b):
@@ -15,10 +14,9 @@ def tag(a, b):
 def convert(char):
     if unicodedata.category(char) == "So":
         name = unicodedata.name(char).title()
-        code = char.encode("unicode_escape").decode("utf-8")[2:].lstrip("0")
         return "".join([
             "<img",
-            tag(" src", cdn + code + cdn_ft),
+            tag(" src", cdn_fmt.format(codepoint=ord(char))),
             tag(" alt", char),
             tag(" title", name),
             tag(" aria-label", "Emoji: %s" % name),
