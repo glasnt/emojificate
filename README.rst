@@ -12,9 +12,11 @@ Usage
 To convert a string from the command line::
 
     $ python3 -m emojificate "I 💜 emoji 😊"
-    I <img src="https://twemoji.maxcdn.com/36x36/1f49c.png" alt="💜" title="Purple Heart" 
-    aria-label="Emoji: Purple Heart"> emoji <img src="https://twemoji.maxcdn.com/36x36/1f60a.png" 
-    alt="😊" title="Smiling Face With Smiling Eyes" aria-label="Emoji: Smiling Face With Smiling Eyes">
+    I <img src="https://twemoji.maxcdn.com/v/12.1.4/72x72/1f49c.png" alt="💜"
+    title="Purple Heart" aria-label="Emoji: Purple Heart"> emoji <img
+    src="https://twemoji.maxcdn.com/v/12.1.4/72x72/1f60a.png" alt="😊"
+    title="Smiling Face With Smiling Eyes" aria-label="Emoji: Smiling Face With
+    Smiling Eyes">
 
 Or, if you've got a Django project, put ``emojificate`` into your ``INSTALLED_APPS``, and then use the following in a template::
 
@@ -40,7 +42,7 @@ Given a list of tokens, we can leverage the native `unicodedata <https://docs.py
 
 From there, we construct an ``<img>`` replacement for the emoji:
 
-* Use images from `twemoji <https://github.com/twitter/twemoji>`__, Twitter's emoji set
+* Use images from `twemoji <https://github.com/twitter/twemoji>`__, Twitter's emoji set (if the URL exists)
 * Have an ``alt`` parameter containing the original emoji. This allows for copying-pasting.
 * Use the name of the emoji in the ``title`` parameter. This allows for hover-tooltips.
 * Add an ``aria-label`` for screen-reader accessibility.
@@ -58,7 +60,7 @@ Ruby
     require 'gemoji' # requires gemoji 3.0.0, released late Dec 2016
 
     def cdn
-        "https://twemoji.maxcdn.com/36x36"
+        "https://twemoji.maxcdn.com/v/12.1.4/72x72/"
     end
 
     def emojificate(string)
