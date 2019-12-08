@@ -15,22 +15,22 @@ def valid(phrase):
     assert phrase != parsed
 
 
-@pytest.mark.skipif(sys.version_info.minor < 5, reason=f"requires Python 3.5 or higher")
+@pytest.mark.skipif(sys.version_info.minor < 5, reason="requires Python 3.5 or higher")
 def test_python_35_char():
     valid(PYTHON_35)
 
 
-@pytest.mark.skipif(sys.version_info.minor < 6, reason=f"requires Python 3.6 or higher")
+@pytest.mark.skipif(sys.version_info.minor < 6, reason="requires Python 3.6 or higher")
 def test_python_36_char():
     valid(PYTHON_36)
 
 
-@pytest.mark.skipif(sys.version_info.minor < 7, reason=f"requires Python 3.7 or higher")
+@pytest.mark.skipif(sys.version_info.minor < 7, reason="requires Python 3.7 or higher")
 def test_python_37_char():
     valid(PYTHON_37)
 
 
-@pytest.mark.skipif(sys.version_info.minor < 8, reason=f"requires Python 3.8 or higher")
+@pytest.mark.skipif(sys.version_info.minor < 8, reason="requires Python 3.8 or higher")
 def test_python_38_char():
     valid(PYTHON_38)
 
