@@ -8,7 +8,7 @@ on:
     types: [created]
 
 jobs:
-  deploy:
+  publish:
 
     runs-on: ubuntu-latest
 
