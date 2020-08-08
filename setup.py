@@ -23,7 +23,7 @@ with open(
 setup(
     name="emojificate",
     version=version,
-    description="A Python implementation of a concept of using fallback images, alt text, title text and aria labels to represent emoji in HTML code in a more accessible method.",
+    description="Convert emoji in HTML to fallback images, alt text, title text, and aria labels.",
     long_description=long_description,
     url="https://github.com/glasnt/emojificate",
     author="Katie McLaughlin",
@@ -31,7 +31,7 @@ setup(
     license="New BSD",
     install_requires=["emoji", "grapheme", "requests"],
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 3 - Beta",
         "Environment :: Web Environment",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: BSD License",
