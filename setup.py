@@ -1,7 +1,7 @@
 import re
 from setuptools import setup, find_packages
-from codecs import open
 from os import path
+import versioneer
 
 here = path.abspath(path.dirname(__file__))
 
@@ -9,20 +9,10 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, "README.rst"), encoding="utf-8") as f:
     long_description = f.read()
 
-with open(
-    path.join(here, "emojificate", "__init__.py"), encoding="utf8"
-) as version_file:
-    version_match = re.search(
-        r"^__version__ = ['\"]([^'\"]*)['\"]", version_file.read(), re.M
-    )
-    if version_match:
-        version = version_match.group(1)
-    else:
-        raise RuntimeError("Unable to find version string.")
-
 setup(
     name="emojificate",
-    version=version,
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
     description="Convert emoji in HTML to fallback images, alt text, title text, and aria labels.",
     long_description=long_description,
     url="https://github.com/glasnt/emojificate",

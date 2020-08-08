@@ -4,4 +4,6 @@ recursive-include tests *.py
 recursive-include docs Makefile
 recursive-include docs *.py
 recursive-include docs *.bat
-recursive-include docs *.rst
+recursive-include docs *.rstinclude versioneer.py
+include emojificate/_version.py
+include versioneer.py
