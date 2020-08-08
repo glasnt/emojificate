@@ -3,8 +3,8 @@ from emojificate.filter import emojificate
 
 TEST_NOCHANGE = [
     "☆*:.｡. (づ ◕‿◕ )づ .｡.:*☆",
-    "This is a test of the emojification system!"
-    ]
+    "This is a test of the emojification system!",
+]
 
 
 def test_nochange():
