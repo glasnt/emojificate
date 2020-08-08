@@ -53,7 +53,7 @@ def convert(char):
             # Is probably a grapheme
             name = get_best_name(char)
 
-    src = cdn_fmt.format(codepoint=codepoint([f"{ord(c):x}" for c in char]))
+    src = cdn_fmt.format(codepoint=codepoint(["{cp:x}".format(cp=ord(c)) for c in char]))
 
     # If twitter doesn't have an image for it, pretend it's not an emoji.
     if valid_src(src):
