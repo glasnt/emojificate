@@ -8,7 +8,7 @@ from ..filter import emojificate
 register = Library()
 
 
-@register.filter('emojificate', needs_autoescape=True)
+@register.filter("emojificate", needs_autoescape=True)
 def emojificate_filter(content, autoescape=True):
     "Convert any emoji in a string into accessible content."
     # return mark_safe(emojificate(content))
@@ -19,9 +19,9 @@ def emojificate_filter(content, autoescape=True):
     return mark_safe(emojificate(esc(content)))
 
 
-@register.tag('emojified')
+@register.tag("emojified")
 def do_emojified(parser, token):
-    nodelist = parser.parse(('endemojified',))
+    nodelist = parser.parse(("endemojified",))
     parser.delete_first_token()
     return EmojifiedNode(nodelist)
 

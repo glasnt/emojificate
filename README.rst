@@ -30,15 +30,17 @@ Or, if you've got a Django project, put ``emojificate`` into your ``INSTALLED_AP
 Implementation
 --------------
 
-TL;DR: Take a string, split it into token, and if a token is emoji, process it into a nice format.
+TL;DR: Take a string, split it into tokens, and if a token is emoji, process it into a nice format.
 
-Splitting the string is a problem, because at the moment it **does not handle Zero Width Joining sequences**. However, native Python string tokenization does work for the most part.
+As of 0.4.0, string-splitting is now handled by [grapheme](https://github.com/alvinlindstam/grapheme).
 
 Given a list of tokens, we can leverage the native `unicodedata <https://docs.python.org/3/library/unicodedata.html>`__ to:
 
 * see if a token is a unicode Symbol (an emoji)
 * get the codepoint for the emoji, and
-* get the name of the emoji
+* get the name of the emoji.
+
+If a token is a grapheme and not a character, there won't be a record of what it is in unicodedata. In that case emojificate defaults to a human-readable version of the shortcode provided by [`emoji`](https://github.com/carpedm20/emoji). 
 
 From there, we construct an ``<img>`` replacement for the emoji:
 
@@ -57,10 +59,10 @@ Ruby
 
 .. code-block:: ruby
 
-    require 'gemoji' # requires gemoji 3.0.0, released late Dec 2016
+    require 'gemoji'
 
     def cdn
-        "https://twemoji.maxcdn.com/v/12.1.4/72x72/"
+        "https://twemoji.maxcdn.com/v/latest/72x72/"
     end
 
     def emojificate(string)
@@ -76,8 +78,3 @@ Ruby
            end
        end
      end
-
-Limitations
------------
-
-* Does not handle Zero Width Join Sequences; for example: 🖐🏽, 👩‍👩‍👧
