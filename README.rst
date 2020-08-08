@@ -1,8 +1,8 @@
 emojificate
 ===========
 
-.. image:: https://travis-ci.org/glasnt/emojificate.svg?branch=master
-    :target: https://travis-ci.org/glasnt/emojificate
+.. image:: https://github.com/glasnt/emojificate/workflows/pytest/badge.svg
+    :target: https://github.com/glasnt/emojificate/actions?query=workflow%3Apytest
 
 Emojificate is a Python implementation of a concept of using fallback images, alt text, title text and aria labels to represent emoji in HTML code in a more accessible method.
 
