@@ -31,7 +31,7 @@ setup(
     license="New BSD",
     install_requires=["emoji", "grapheme", "requests"],
     classifiers=[
-        "Development Status :: 3 - Beta",
+        "Development Status :: 3 - Alpha",
         "Environment :: Web Environment",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: BSD License",
