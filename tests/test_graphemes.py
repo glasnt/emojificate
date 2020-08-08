@@ -21,4 +21,4 @@ def test_pride():
 
 
 def test_farmer():
-    valid("👩🏼‍🌾", "Woman Farmer Medium-Light skin tone")
+    valid("👩🏼‍🌾", "Woman Farmer Medium-Light Skin Tone")
