@@ -25,6 +25,7 @@ setup(
     author='Katie McLaughlin',
     author_email='katie@glasnt.com',
     license='New BSD',
+    install_requires=['emoji','grapheme', 'requests'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
