@@ -4,7 +4,14 @@ emojificate
 .. image:: https://github.com/glasnt/emojificate/workflows/pytest/badge.svg
     :target: https://github.com/glasnt/emojificate/actions?query=workflow%3Apytest
 
-Emojificate is a Python implementation of a concept of using fallback images, alt text, title text and aria labels to represent emoji in HTML code in a more accessible method.
+Emojificate is a Python implementation of a concept of using fallback images, alt text, title text and aria labels to represent emoji in HTML, a more accessible method than browser defaults. 
+
+Installation
+------------
+
+emojificate is available on pypi::
+
+    pip install emojificate
 
 Usage
 -----
@@ -32,7 +39,7 @@ Implementation
 
 TL;DR: Take a string, split it into tokens, and if a token is emoji, process it into a nice format.
 
-As of 0.4.0, string-splitting is now handled by [grapheme](https://github.com/alvinlindstam/grapheme).
+As of 0.4.0, string-splitting is now handled by `grapheme <https://github.com/alvinlindstam/grapheme>`__.
 
 Given a list of tokens, we can leverage the native `unicodedata <https://docs.python.org/3/library/unicodedata.html>`__ to:
 
@@ -40,7 +47,7 @@ Given a list of tokens, we can leverage the native `unicodedata <https://docs.py
 * get the codepoint for the emoji, and
 * get the name of the emoji.
 
-If a token is a grapheme and not a character, there won't be a record of what it is in unicodedata. In that case emojificate defaults to a human-readable version of the shortcode provided by [`emoji`](https://github.com/carpedm20/emoji). 
+If a token is a grapheme and not a character, there won't be a record of what it is in unicodedata. In that case emojificate defaults to a human-readable version of the shortcode provided by `emoji <https://github.com/carpedm20/emoji>`__. 
 
 From there, we construct an ``<img>`` replacement for the emoji:
 
