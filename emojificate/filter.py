@@ -26,7 +26,7 @@ def get_best_name(char):
     unicode data does not recognise the grapheme, 
     so try and parse something from emoji instead.
     """
-    shortcode = emoji.demojize(char, use_aliases=True)
+    shortcode = emoji.demojize(char, language='alias')
 
     # Roughly convert shortcode to screenreader-friendly sentence.
     return shortcode.replace(":", "").replace("_", " ").replace("selector", "").title()
