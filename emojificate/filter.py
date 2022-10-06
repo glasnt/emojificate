@@ -6,10 +6,12 @@ import requests
 
 __all__ = ["emojificate"]
 
-cdn_fmt = "https://twemoji.maxcdn.com/v/latest/72x72/{codepoint}.png"
+TWITTER_CDN = "https://twemoji.maxcdn.com/v/latest"
+TWITTER_TYPE = {"png": "/72x72/{codepoint}.png", "svg": "/svg/{codepoint}.svg"}
 
 
 def valid_src(src):
+    """Check to see if a source URL is hosted in the CDN"""
     req = requests.head(src)
     return req.status_code == 200
 
@@ -23,16 +25,16 @@ def valid_category(char):
 
 def get_best_name(char):
     """
-    unicode data does not recognise the grapheme, 
+    unicode data does not recognise the grapheme,
     so try and parse something from emoji instead.
     """
-    shortcode = emoji.demojize(char, language='alias')
+    shortcode = emoji.demojize(char, language="alias")
 
     # Roughly convert shortcode to screenreader-friendly sentence.
     return shortcode.replace(":", "").replace("_", " ").replace("selector", "").title()
 
 
-def convert(char):
+def convert(char, filetype, css_class):
     def tag(a, b):
         return '%s="%s"' % (a, b)
 
@@ -53,7 +55,10 @@ def convert(char):
             # Is probably a grapheme
             name = get_best_name(char)
 
-    src = cdn_fmt.format(codepoint=codepoint(["{cp:x}".format(cp=ord(c)) for c in char]))
+    src = TWITTER_CDN
+    src += TWITTER_TYPE[filetype]
+
+    src = src.format(codepoint=codepoint(["{cp:x}".format(cp=ord(c)) for c in char]))
 
     # If twitter doesn't have an image for it, pretend it's not an emoji.
     if valid_src(src):
@@ -61,6 +66,7 @@ def convert(char):
             [
                 "<img",
                 tag(" src", src),
+                tag(" css", css_class),
                 tag(" alt", char),
                 tag(" title", name),
                 tag(" aria-label", "Emoji: %s" % name),
@@ -71,5 +77,5 @@ def convert(char):
         return char
 
 
-def emojificate(string):
-    return "".join(convert(ch) for ch in graphemes(string))
+def emojificate(string, filetype="png", css_class="emojificate"):
+    return "".join(convert(ch, filetype, css_class) for ch in graphemes(string))
