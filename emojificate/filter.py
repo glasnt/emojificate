@@ -7,10 +7,7 @@ import requests
 __all__ = ["emojificate"]
 
 TWITTER_CDN = "https://twemoji.maxcdn.com/v/latest"
-TWITTER_TYPE = {
-    "png": "/72x72/{codepoint}.png",
-    "svg": "/svg/{codepoint}.svg"
-    }
+TWITTER_TYPE = {"png": "/72x72/{codepoint}.png", "svg": "/svg/{codepoint}.svg"}
 
 
 def valid_src(src):
@@ -28,10 +25,10 @@ def valid_category(char):
 
 def get_best_name(char):
     """
-    unicode data does not recognise the grapheme, 
+    unicode data does not recognise the grapheme,
     so try and parse something from emoji instead.
     """
-    shortcode = emoji.demojize(char, language='alias')
+    shortcode = emoji.demojize(char, language="alias")
 
     # Roughly convert shortcode to screenreader-friendly sentence.
     return shortcode.replace(":", "").replace("_", " ").replace("selector", "").title()

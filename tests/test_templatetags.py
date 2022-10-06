@@ -28,9 +28,11 @@ This is some template content that 💜 emoji as well.
 {% endemojified %}
 """
 
+
 def valid(data):
     assert "emoji" in data
     assert "alt" in data
+
 
 def test_filter():
     context = Context({"user_content": "✨"})

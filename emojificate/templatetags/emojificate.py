@@ -16,6 +16,7 @@ css_class = DEFAULT_CSS_CLASS
 if hasattr(settings, "EMOJIFICATE_CSS_CLASS"):
     css_class = settings.EMOJIFICATE_CSS_CLASS
 
+
 @register.filter("emojificate", needs_autoescape=True)
 def emojificate_filter(content, autoescape=True):
     """Convert any emoji in a string into accessible content."""
