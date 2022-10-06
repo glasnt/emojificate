@@ -10,7 +10,7 @@ register = Library()
 
 filetype = DEFAULT_FILETYPE
 if hasattr(settings, "EMOJIFICATE_FILETYPE"):
-    filetype = settings.EMOJIFICATE_FILETYPE
+    filetype = settings.EMOJIFICATE_FILETYPE.lower()
 
 css_class = DEFAULT_CSS_CLASS
 if hasattr(settings, "EMOJIFICATE_CSS_CLASS"):
