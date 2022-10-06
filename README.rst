@@ -33,7 +33,7 @@ To convert a string from the command line::
         css="emojificiate" alt="😊" title="Smiling Face With Smiling Eyes"
         aria-label="Emoji: Smiling Face With Smiling Eyes">
 
-Change the class with ``--css-class``. To get SVG instead of PNG, use ``--filetype svg``.
+Change the class with ``--css-class`` (default "emojificate"). To get SVG instead of PNG, use ``--filetype svg``.
 
 
 Or, if you've got a Django project, put ``emojificate`` into your ``INSTALLED_APPS``, and then use the following in a template::
@@ -45,7 +45,7 @@ Or, if you've got a Django project, put ``emojificate`` into your ``INSTALLED_AP
     This is some template content that 💜 emoji as well.
     {% endemojified %}
 
-Configure with ``EMOJIFICATE_FILETYPE`` and ``EMOJIFICIATE_CSS_CLASS`` in your ``settings.py``. 
+Configure with ``EMOJIFICATE_FILETYPE`` and ``EMOJIFICIATE_CSS_CLASS`` in your ``settings.py``, and add some css to make the emoji not huge.
 
 Implementation
 --------------
