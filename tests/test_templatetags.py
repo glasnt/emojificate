@@ -22,6 +22,7 @@ This is some {{ user_content|emojificate }} that has emoji in it.
 """
 
 TEST_TAG = """
+{% load emojificate %}
 {% emojified %}
 This is some template content that 💜 emoji as well.
 {% endemojified %}
@@ -38,6 +39,6 @@ def test_filter():
     valid(parsed)
 
 
-#def test_tag():
-#    parsed = Template(TEST_TAG).render(Context())
-#    valid(parsed)
+def test_tag():
+    parsed = Template(TEST_TAG).render(Context())
+    valid(parsed)
