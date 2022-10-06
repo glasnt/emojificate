@@ -66,7 +66,7 @@ def convert(char, filetype, css_class):
             [
                 "<img",
                 tag(" src", src),
-                tag(" css", css_class),
+                tag(" class", css_class),
                 tag(" alt", char),
                 tag(" title", name),
                 tag(" aria-label", "Emoji: %s" % name),
