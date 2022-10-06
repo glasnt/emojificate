@@ -9,7 +9,7 @@ from emojificate.filter import emojificate
 PYTHON_37 = {"alt": "🥰", "title": "Smiling Face With Smiling Eyes And Three Hearts"}
 PYTHON_38 = {"alt": "🥱", "title": "Yawning Face"}  # Unicode 12.0
 PYTHON_39 = {"alt": "🥸", "title": "Disguised Face"}  # Unicode 13.0
-PYTHON_310 = {"alt": "🥲", "title": "Smiling Face with Tear"}  # Unicode 13.0, also.
+PYTHON_310 = {"alt": "🥲", "title": "Smiling Face With Tear"}  # Unicode 13.0, also.
 
 
 def valid(data):
@@ -38,8 +38,6 @@ def test_python_39_char():
     valid(PYTHON_39)
 
 
-@pytest.mark.skipif(
-    sys.version_info.minor < 10, reason="requires Python 3.10 or higher"
-)
+@pytest.mark.skipif(sys.version_info.minor < 10, reason="requires Python 3.10 or higher")
 def test_python_310_char():
     valid(PYTHON_310)
