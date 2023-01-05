@@ -1,0 +1,26 @@
+name: bumpfile
+
+on:
+  schedule:
+    - cron: '0 0 2 * *'
+    
+  # manual
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: get time
+      run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+    - name: write time
+      run: echo $NOW > .bumpfile
+    - name: save time
+      run: |
+        git diff
+        git config --global user.email "bumpfile-bot@example.com"
+        git config --global user.name "BumpFile-bot"
+        git add -A
+        git commit -m "🤖 Bumped bumpfile" || exit 0
+        git push

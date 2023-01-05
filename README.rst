@@ -3,7 +3,7 @@ emojificate
 
 |status| |release| |date|
  
-.. |status| image:: https://img.shields.io/github/workflow/status/glasnt/emojificate/pytest?label=pytest&style=flat-square   :alt: GitHub Workflow Status
+.. |status| image:: https://img.shields.io/github/actions/workflow/status/glasnt/emojificate/pytest.yml?branch=latest&label=pytest&style=flat-square   :alt: GitHub Workflow Status
 
 .. |release| image:: https://img.shields.io/github/v/release/glasnt/emojificate?sort=semver&style=flat-square   :alt: GitHub release (latest SemVer)
 
