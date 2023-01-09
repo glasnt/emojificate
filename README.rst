@@ -25,11 +25,11 @@ To convert a string from the command line::
 
     $ python3 -m emojificate "I 💜 emoji 😊"
     I
-    <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f49c.png" 
+    <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f49c.png"
          css="emojificiate" alt="💜" title="Purple Heart" 
          aria-label="Emoji: Purple Heart">
     emoji 
-        <img src="https://twemoji.maxcdn.com/v/latest/72x72/1f60a.png"
+        <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60a.png"
         css="emojificiate" alt="😊" title="Smiling Face With Smiling Eyes"
         aria-label="Emoji: Smiling Face With Smiling Eyes">
 
@@ -82,7 +82,7 @@ Ruby
     require 'gemoji'
 
     def cdn
-        "https://twemoji.maxcdn.com/v/latest/72x72/"
+        "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/"
     end
 
     def emojificate(string)

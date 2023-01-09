@@ -6,7 +6,7 @@ import requests
 
 __all__ = ["emojificate"]
 
-TWITTER_CDN = "https://twemoji.maxcdn.com/v/latest"
+TWITTER_CDN = "https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2"
 TWITTER_TYPE = {"png": "/72x72/{codepoint}.png", "svg": "/svg/{codepoint}.svg"}
 
 
