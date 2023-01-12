@@ -15,12 +15,14 @@ PYTHON_310 = {"alt": "🥲", "title": "Smiling Face With Tear"}  # Unicode 13.0,
 def valid(data):
     alt = data["alt"]
     title = data["title"]
-    parsed = emojificate(alt)
-    assert alt in parsed
-    assert 'alt="{}"'.format(alt) in parsed
 
-    assert title in parsed
-    assert 'aria-label="Emoji: {}"'.format(title) in parsed
+    for filetype in ["png", "svg"]:
+        parsed = emojificate(alt, filetype=filetype)
+        assert alt in parsed
+        assert 'alt="{}"'.format(alt) in parsed
+
+        assert title in parsed
+        assert 'aria-label="Emoji: {}"'.format(title) in parsed
 
 
 @pytest.mark.skipif(sys.version_info.minor < 7, reason="requires Python 3.7 or higher")
